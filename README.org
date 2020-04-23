@@ -1,0 +1,20 @@
+* Elizabot 
+A toy implementation of [[https://en.wikipedia.org/wiki/ELIZA][ELIZA]] as a Telegram bot.
+
+** Installation and usage
+
+*** With quicklisp
+Just clone this repo in a place quicklisp can reach then, at a repl:
+#+BEGIN_SRC common-lisp
+(ql:quickload :elizabot)
+(setf elizabot:*token* "my-telegram-bot-token")
+(elizabot:add-translation '((?x *) "is" "a" "fool") '(?x "sure" "is"))
+(elizabot:run)
+#+END_SRC
+
+The first command loads elizabot, the second one configures the bot's token. The third adds a translation rule and finally the last one starts the bot.
+
+Now sending a message like =foo is a fool= to your bot will make it reply with =foo sure is=. Documentation about how to write rules is somewhere in the source code.
+
+*** Without quicklisp
+I don't know, use quicklisp.
